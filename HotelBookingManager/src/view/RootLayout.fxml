@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1139.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Bookings" />
+                  <MenuItem mnemonicParsing="false" text="Guests" />
+                  <MenuItem mnemonicParsing="false" text="Restaurants" />
+                  <MenuItem mnemonicParsing="false" text="Recreation" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Quit">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close Program" />
+               </items>
+          </Menu>
+        </menus>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </MenuBar>
+   </top>
+</BorderPane>

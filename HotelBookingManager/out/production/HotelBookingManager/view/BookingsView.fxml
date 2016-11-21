@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1139.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookingsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6f2" height="763.0" layoutX="-5.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1145.0" />
+      <Label layoutX="312.0" layoutY="17.0" prefHeight="28.0" prefWidth="123.0" text="Available Rooms" />
+      <VBox layoutX="97.0" layoutY="24.0" spacing="4.0" />
+      <VBox layoutX="9.0" layoutY="28.0" prefWidth="67.0" spacing="12.0" />
+      <Separator layoutX="-3.0" layoutY="8.0" prefHeight="3.0" prefWidth="1139.0" />
+      <TableView fx:id="availableRoomsTable" editable="true" layoutX="313.0" layoutY="51.0" prefHeight="209.0" prefWidth="807.0" tableMenuButtonVisible="true">
+        <columns>
+            <TableColumn fx:id="roomNumberColumn" prefWidth="106.62107849121094" text="Room Number" />
+            <TableColumn fx:id="roomTypeColumn" prefWidth="55.023681640625" text="Type" />
+          <TableColumn fx:id="roomAvailabilityColumn" prefWidth="88.38616943359375" text="Availability" />
+          <TableColumn fx:id="roomNumberOfBedsColumn" prefWidth="118.09103393554688" text="Number of Beds" />
+            <TableColumn fx:id="roomPhoneNumberColumn" prefWidth="105.59747314453125" text="Phone Number" />
+            <TableColumn fx:id="roomNightlyRateColumn" minWidth="0.0" prefWidth="100.40618896484375" text="Nightly Rate" />
+            <TableColumn fx:id="roomWingNumberColumn" prefWidth="101.21490478515625" text="Wing Number" />
+            <TableColumn fx:id="roomFloorNumberColumn" prefWidth="110.32244873046875" text="Floor Number" />
+        </columns>
+      </TableView>
+      <Button fx:id="viewAllAvailableRoomsBtn" layoutX="907.0" layoutY="17.0" mnemonicParsing="false" onAction="#viewRooms" prefHeight="27.0" prefWidth="215.0" text="View All Available Rooms" />
+      <Label layoutX="13.0" layoutY="30.0" prefHeight="17.0" prefWidth="79.0" text="Search by:" />
+      <Label layoutX="19.0" layoutY="93.0" prefHeight="17.0" prefWidth="49.0" text="Type" />
+      <Label layoutX="18.0" layoutY="127.0" prefHeight="17.0" prefWidth="110.0" text="Number of Beds" />
+      <Label layoutX="14.0" layoutY="166.0" prefHeight="17.0" prefWidth="126.0" text="Max. Nightly Rate" />
+      <Label layoutX="14.0" layoutY="202.0" prefHeight="17.0" prefWidth="126.0" text="Floor Number" />
+      <TextField fx:id="roomTypeText" layoutX="149.0" layoutY="88.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="numberOfBedsText" layoutX="149.0" layoutY="122.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="maxNightlyRateText" layoutX="149.0" layoutY="161.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="floorNumberText" layoutX="149.0" layoutY="197.0" prefHeight="27.0" prefWidth="145.0" />
+      <Separator layoutX="2.0" layoutY="275.0" prefHeight="3.0" prefWidth="1132.0" />
+      <TableView fx:id="bookingsTable" editable="true" layoutX="313.0" layoutY="320.0" prefHeight="361.0" prefWidth="808.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="booksGuestIDColumn" prefWidth="95.54847717285156" text="Guest ID" />
+            <TableColumn fx:id="booksRoomNumberColumn" prefWidth="108.1298828125" text="Room Number" />
+            <TableColumn fx:id="booksCheckInDateColumn" minWidth="1.903045654296875" prefWidth="102.8701171875" text="Check-In Date" />
+            <TableColumn fx:id="booksCheckOutDateColumn" prefWidth="115.23089599609375" text="Check-Out Date" />
+            <TableColumn fx:id="booksPackageColumn" prefWidth="90.38970947265625" text="Package" />
+            <TableColumn fx:id="booksPaymentMethodColumn" prefWidth="134.62066650390625" text="Payment Method" />
+            <TableColumn fx:id="booksPaymentReceivedColumn" prefWidth="142.37933349609375" text="Payment Received" />
+         </columns>
+      </TableView>
+      <Label layoutX="309.0" layoutY="283.0" prefHeight="28.0" prefWidth="123.0" text="Bookings" />
+      <TextField fx:id="packageText" layoutX="141.0" layoutY="459.0" prefHeight="27.0" prefWidth="146.0" />
+      <TextField fx:id="checkOutDateText" layoutX="141.0" layoutY="423.0" prefHeight="27.0" prefWidth="145.0" promptText="YYYY/MM/DD" />
+      <TextField fx:id="checkInDateText" layoutX="141.0" layoutY="384.0" prefHeight="27.0" prefWidth="145.0" promptText="YYYY/MM/DD" />
+      <TextField fx:id="roomNumberText" layoutX="141.0" layoutY="350.0" prefHeight="27.0" prefWidth="146.0" />
+      <Label layoutX="6.0" layoutY="464.0" prefHeight="17.0" prefWidth="126.0" text="Package" />
+      <Label layoutX="6.0" layoutY="428.0" prefHeight="17.0" prefWidth="126.0" text="Check-Out Date" />
+      <Label layoutX="10.0" layoutY="389.0" prefHeight="17.0" prefWidth="110.0" text="Check-In Date" />
+      <Label layoutX="11.0" layoutY="355.0" prefHeight="17.0" prefWidth="100.0" text="Room Number" />
+      <Label layoutX="4.0" layoutY="288.0" prefHeight="17.0" prefWidth="143.0" text="Booking Information:" />
+      <Label layoutX="2.0" layoutY="518.0" prefHeight="21.0" prefWidth="143.0" text="Guest Information:" />
+      <Label layoutX="10.0" layoutY="569.0" prefHeight="17.0" prefWidth="100.0" text="First Name" />
+      <Label layoutX="9.0" layoutY="603.0" prefHeight="17.0" prefWidth="110.0" text="Last Name" />
+      <Label layoutX="10.0" layoutY="642.0" prefHeight="17.0" prefWidth="126.0" text="Title" />
+      <TextField fx:id="guestFirstNameText" layoutX="140.0" layoutY="564.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="guestLastNameText" layoutX="140.0" layoutY="598.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="guestTitleText" layoutX="140.0" layoutY="637.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="guestHomeAddressText" layoutX="139.0" layoutY="714.0" prefHeight="27.0" prefWidth="145.0" />
+      <TextField fx:id="guestContactNumberText" layoutX="139.0" layoutY="675.0" prefHeight="27.0" prefWidth="145.0" />
+      <Label layoutX="9.0" layoutY="719.0" prefHeight="17.0" prefWidth="126.0" text="Home Address" />
+      <Label layoutX="8.0" layoutY="680.0" prefHeight="17.0" prefWidth="110.0" text="Contact Number" />
+      <Button fx:id="searchBookingsBtn" layoutX="904.0" layoutY="283.0" mnemonicParsing="false" onAction="#searchBookings" prefHeight="27.0" prefWidth="215.0" text="View All Bookings" />
+      <Button fx:id="viewAllAvailableRoomsBtn1" layoutX="10.0" layoutY="232.0" mnemonicParsing="false" onAction="#searchRooms" prefHeight="27.0" prefWidth="283.0" text="Search Rooms" />
+      <Button fx:id="viewAllAvailableRoomsBtn11" layoutX="897.0" layoutY="696.0" mnemonicParsing="false" onAction="#insertBooking" prefHeight="45.0" prefWidth="221.0" text="Confirm Booking">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Label layoutX="310.0" layoutY="701.0" prefHeight="28.0" prefWidth="571.0" text="Please fill out all of the Booking and Guest Informaton to the left in order to book a room." />
+      <Label fx:id="bookingErrorText" layoutX="11.0" layoutY="311.0" prefHeight="36.0" prefWidth="272.0" />
+      <Label fx:id="roomErrorText" layoutX="16.0" layoutY="51.0" prefHeight="28.0" prefWidth="272.0" />
+   </children>
+</AnchorPane>
