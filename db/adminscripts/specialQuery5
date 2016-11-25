@@ -1,0 +1,4 @@
+SELECT DISTINCT amenity.AmenityID, dining.Name, amenity.Capacity
+FROM amenity, dining
+WHERE amenity.AmenityID = dining.AmenityID
+ORDER BY Capacity;

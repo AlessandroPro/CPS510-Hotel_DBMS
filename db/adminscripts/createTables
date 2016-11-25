@@ -1,0 +1,121 @@
+CREATE TABLE guest(
+                  GuestID                                   INTEGER PRIMARY KEY,
+                  Title                                          VARCHAR2(4),
+                  FirstName                                VARCHAR(25) NOT NULL,
+                  LastName                                VARCHAR(25),
+                  ContactNumber                       VARCHAR(12) NOT NULL,
+                  HomeAddress                          VARCHAR(48)
+);
+
+CREATE TABLE room(
+		  RoomNumber                          INTEGER PRIMARY KEY,
+                  Type                                       VARCHAR2(15) NOT NULL ,
+		  Availability                                VARCHAR(1) CONSTRAINT a_check_yn CHECK (Availability IN ('Y','N')),
+		  NumberOfBeds                         INTEGER,
+                  PhoneNumber                          VARCHAR2(15),
+                  CostPerNight                           INTEGER,
+                  WingNumber                           INTEGER,
+                  FloorNumber                           INTEGER
+);
+
+CREATE TABLE amenity(
+                  AmenityID                                INTEGER PRIMARY KEY,
+                  FloorNumber                           INTEGER NOT NULL,
+                  Capacity                                   INTEGER NOT NULL,
+                  Type                                          VARCHAR2(20),
+                  Department                              VARCHAR2(20),
+                  OpenTime                                FLOAT,
+                  CloseTime                               FLOAT
+);
+ 
+CREATE TABLE dining(
+    AmenityID                                INTEGER REFERENCES amenity(AmenityID),
+    Name                                     VARCHAR2(25) NOT NULL,
+    Owner                                    VARCHAR2(25)
+);
+
+CREATE TABLE recreation(
+                  AmenityID                                INTEGER REFERENCES amenity(AmenityID),
+                  EntranceFee                             INTEGER NOT NULL
+);
+
+CREATE TABLE department(
+                  Name                          VARCHAR2(30) PRIMARY KEY,
+                  Manager                       VARCHAR2(30),
+		  NumberOfEmployees             INTEGER
+);
+
+CREATE TABLE inventory(
+                ProductID                          INTEGER PRIMARY KEY,
+                ProductName                        VARCHAR(30),
+		LastReceivedDate                   DATE,
+		Quantity                           INTEGER
+);
+
+
+CREATE TABLE supplier(
+SupplierID                                INTEGER PRIMARY KEY,
+                  Name                                        VARCHAR2(20),
+                  ContactNumber                       VARCHAR2(15),
+ContactPerson                         VARCHAR2(20)
+);
+ 
+CREATE TABLE promotion(
+                  PromotionNumber                   INTEGER PRIMARY KEY,
+                  Name                                        VARCHAR2(20),
+                  Source                                      VARCHAR2(20)
+);
+
+CREATE TABLE full_time_employee(
+EmployeeID                             INTEGER PRIMARY KEY,
+Title                                           VARCHAR2(25),
+FirstName                                VARCHAR2(25),
+LastName                                 VARCHAR(25),         
+Manager                                   VARCHAR(25),
+Department                              VARCHAR(25) REFERENCES department(Name),
+StartDate                                  DATE,        
+BenefitsPlan                             VARCHAR2(20),
+Salary                                       INTEGER
+);                                                        
+ 
+CREATE TABLE part_time_employee(
+EmployeeID                             INTEGER PRIMARY KEY,
+Title                                           VARCHAR2(25),
+FirstName                                VARCHAR2(25),
+LastName                                 VARCHAR(25),         
+Manager                                   VARCHAR(25),
+Department                              VARCHAR(25) REFERENCES department(Name),
+StartDate                                  DATE,      
+PayRate                                   INTEGER
+);
+ 
+CREATE TABLE books(
+                  GuestID                                  INTEGER REFERENCES guest(GuestID),
+                  RoomNumber                         INTEGER REFERENCES room(RoomNumber),
+                  CheckInDate                           DATE NOT NULL,
+                  CheckOutDate                        DATE NOT NULL,
+                  Package                                  VARCHAR2(25),
+                  PaymentMethod                      VARCHAR2(15),
+                  PaymentReceived                   VARCHAR(1) CONSTRAINT pr_check_yn CHECK (PaymentReceived IN ('Y','N')),
+                  PRIMARY KEY                        (RoomNumber, GuestID)
+);
+
+CREATE TABLE services(
+                  DepartmentName                    Varchar(25) REFERENCES department(Name),
+                  RoomNumber                          INTEGER REFERENCES room(RoomNumber)
+);
+
+CREATE TABLE manages(
+                  DepartmentName                    VARCHAR(25) REFERENCES department(Name),
+                  ProductID                       INTEGER REFERENCES inventory(ProductID),
+                  QuantityRemoved                    INTEGER, 
+                  DateRemoved                          DATE
+);
+
+CREATE TABLE supplies(
+                  SupplierID                               INTEGER REFERENCES supplier(SupplierID),
+                  ProductID                       INTEGER REFERENCES inventory(ProductID),
+                  QuantitySupplied                      INTEGER,
+                  OrderDate                                DATE,
+                  ReceivedDate                          DATE
+);

@@ -1,0 +1,4 @@
+SELECT  room.FloorNumber, amenity.Type
+FROM room, amenity
+WHERE Availability = 'Y'
+AND room.FloorNumber = amenity.FloorNumber;

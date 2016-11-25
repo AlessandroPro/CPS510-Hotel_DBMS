@@ -1,0 +1,6 @@
+SELECT Type, RoomNumber, WingNumber
+FROM room
+WHERE WingNumber <> 2
+GROUP BY WingNumber, RoomNumber, Type
+ORDER by RoomNumber;
+
