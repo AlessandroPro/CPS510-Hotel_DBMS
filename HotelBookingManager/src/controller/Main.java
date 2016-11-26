@@ -1,5 +1,4 @@
-
-
+package controller;//import controller.RootLayoutController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-//Main class which extends from Application Class
+//controller.Main class which extends from Application Class
 public class Main extends Application {
 
     //This is our PrimaryStage (It contains everything)
@@ -38,16 +37,16 @@ public class Main extends Application {
         try {
             //First, load root layout from RootLayout.fxml
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(Main.class.getResource("../view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             //Second, show the scene containing the root layout.
             Scene scene = new Scene(rootLayout); //We are sending rootLayout to the Scene.
             primaryStage.setScene(scene); //Set the scene in primary stage.
 
-            /*//Give the controller access to the main.
+            //Give the controller access to the main.
             RootLayoutController controller = loader.getController();
-            controller.setMain(this);*/
+            controller.setMain(this);
 
             //Third, show the primary stage
             primaryStage.show(); //Display the primary stage
@@ -61,11 +60,26 @@ public class Main extends Application {
         try {
             //First, load BookingsView from BookingsView.fxml
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/BookingsView.fxml"));
+            loader.setLocation(Main.class.getResource("../view/BookingsView.fxml"));
             AnchorPane bookingsOperationsView = (AnchorPane) loader.load();
 
             // Set Bookings Operations view into the center of root layout.
             rootLayout.setCenter(bookingsOperationsView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Shows the bookings operations view inside the root layout.
+    public void showGuestsView() {
+        try {
+            //First, load BookingsView from BookingsView.fxml
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/GuestsView.fxml"));
+            AnchorPane GuestsOperationsView = (AnchorPane) loader.load();
+
+            // Set Bookings Operations view into the center of root layout.
+            rootLayout.setCenter(GuestsOperationsView);
         } catch (IOException e) {
             e.printStackTrace();
         }

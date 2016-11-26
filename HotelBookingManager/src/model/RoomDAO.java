@@ -57,7 +57,7 @@ public class RoomDAO {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
 
-            //Send ResultSet to the getEmployeeList method and get employee object
+            //Send ResultSet to the getRoomList method and get room object
             ObservableList<Room> roomList = getRoomList(rsEmps);
 
             //Return room object

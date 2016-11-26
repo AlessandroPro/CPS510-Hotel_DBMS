@@ -2,8 +2,6 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import util.DBUtil;
-
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -21,7 +19,7 @@ public class BookingDAO {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
 
-            //Send ResultSet to the getEmployeeList method and get employee object
+            //Send ResultSet to the getBookingList method and get booking object
             ObservableList<Booking> bookingList = getBookingList(rsEmps);
 
             //Return room object

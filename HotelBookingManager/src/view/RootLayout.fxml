@@ -15,10 +15,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="View">
             <items>
-              <MenuItem mnemonicParsing="false" text="Bookings" />
-                  <MenuItem mnemonicParsing="false" text="Guests" />
-                  <MenuItem mnemonicParsing="false" text="Restaurants" />
-                  <MenuItem mnemonicParsing="false" text="Recreation" />
+              <MenuItem mnemonicParsing="false" onAction="#showBookingsView" text="Bookings" />
+                  <MenuItem fx:id="guestsMenuItem" mnemonicParsing="false" onAction="#showGuestsView" text="Guests" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Quit">

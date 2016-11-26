@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1139.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuestsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6f2" height="766.0" layoutX="-5.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1145.0" />
+      <Label layoutX="27.0" layoutY="34.0" prefHeight="28.0" prefWidth="123.0" text="Guest Information" />
+      <VBox layoutX="97.0" layoutY="24.0" spacing="4.0" />
+      <VBox layoutX="9.0" layoutY="28.0" prefWidth="67.0" spacing="12.0" />
+      <Separator layoutX="-3.0" layoutY="8.0" prefHeight="3.0" prefWidth="1139.0" />
+      <TableView fx:id="guestsTable" editable="true" layoutX="16.0" layoutY="75.0" prefHeight="624.0" prefWidth="1104.0" tableMenuButtonVisible="true">
+        <columns>
+            <TableColumn fx:id="guestIDColumn" prefWidth="120.40911865234375" text="Guest ID" />
+            <TableColumn fx:id="titleColumn" prefWidth="145.78985595703125" text="Title" />
+          <TableColumn fx:id="firstNameColumn" prefWidth="172.52279663085938" text="First Name" />
+          <TableColumn fx:id="lastNameColumn" prefWidth="203.4090576171875" text="Last Name" />
+            <TableColumn fx:id="contactNumberColumn" prefWidth="221.789794921875" text="Contact Number" />
+            <TableColumn fx:id="homeAddressColumn" minWidth="0.0" prefWidth="231.210205078125" text="Home Address" />
+        </columns>
+      </TableView>
+      <Button fx:id="viewAllGuestsBtn" layoutX="904.0" layoutY="34.0" mnemonicParsing="false" onAction="#viewGuests" prefHeight="27.0" prefWidth="215.0" text="View All Guests" />
+      <Separator layoutX="3.0" layoutY="720.0" prefHeight="3.0" prefWidth="1132.0" />
+      <Label fx:id="bookingErrorText" layoutX="11.0" layoutY="311.0" prefHeight="36.0" prefWidth="272.0" />
+      <Label fx:id="roomErrorText" layoutX="16.0" layoutY="51.0" prefHeight="28.0" prefWidth="272.0" />
+   </children>
+</AnchorPane>

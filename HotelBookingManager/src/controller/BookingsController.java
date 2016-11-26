@@ -14,6 +14,7 @@ import model.GuestDAO;
 import model.Booking;
 import model.BookingDAO;
 
+import java.io.*;
 import java.sql.Date;
 import java.sql.SQLException;
 
@@ -336,7 +337,54 @@ public class BookingsController {
     @FXML
     private void insertBooking (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        int guestID = 37;
+        //Used to keep track of Guest ID sequence values
+        // The name of the file to open.
+        String fileName = "src/controller/guestIDs.txt";
+        int guestID = 0;
+
+        // This will reference one line at a time
+        String line = null;
+
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader =
+                    new FileReader(fileName);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader =
+                    new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null) {
+                guestID = Integer.parseInt(line) + 1;
+            }
+
+            // Always close files.
+            bufferedReader.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                    "Unable to open file '" +
+                            fileName + "'");
+        }
+        catch(IOException ex) {
+            System.out.println(
+                    "Error reading file '"
+                            + fileName + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+        try{
+
+            //true = append file
+            FileWriter fileWritter = new FileWriter("src/controller/guestIDs.txt",true);
+            BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+            bufferWritter.write(guestID + "\n");
+            bufferWritter.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
 
         try {
             GuestDAO.insertGuest(guestID, guestTitleText.getText(), guestFirstNameText.getText(),
@@ -363,6 +411,19 @@ public class BookingsController {
             guestContactNumberText.setText("");
             guestTitleText.setText("");
             guestHomeAddressText.setText("");
+
+            try {
+                //Get all Rooms information
+                ObservableList<Booking> bookingData = BookingDAO.searchBookings();
+                //Populate Rooms on TableView
+                populateBookings(bookingData);
+            } catch (SQLException e){
+                bookingErrorText.setTextFill(Color.web("#dd0000"));
+                bookingErrorText.setText("An error occurred. Please try again.");
+                System.out.println("Error occurred while getting Booking information from DB.\n" + e);
+                throw e;
+            }
+
         } catch (RuntimeException e) {
             GuestDAO.deleteGuest(guestID);
             bookingErrorText.setTextFill(Color.web("#dd0000"));

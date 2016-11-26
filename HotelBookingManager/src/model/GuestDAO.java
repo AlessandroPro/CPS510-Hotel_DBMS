@@ -2,35 +2,13 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import util.DBUtil;
+import java.io.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GuestDAO {
 
-    //*******************************
-    //SELECT Guests
-    //*******************************
-    public static ObservableList<Guest> searchGuests () throws SQLException, ClassNotFoundException {
-        //Declare a SELECT statement
-        String selectStmt = "SELECT * FROM guest";
-
-        //Execute SELECT statement
-        try {
-            //Get ResultSet from dbExecuteQuery method
-            ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
-
-            //Send ResultSet to the getEmployeeList method and get employee object
-            ObservableList<Guest> guestList = getGuestList(rsEmps);
-
-            //Return guest object
-            return guestList;
-        } catch (SQLException e) {
-            System.out.println("SQL select operation has been failed: " + e);
-            //Return exception
-            throw e;
-        }
-    }
 
     //Select * from guest operation
     private static ObservableList<Guest> getGuestList(ResultSet rs) throws SQLException, ClassNotFoundException {
@@ -52,10 +30,35 @@ public class GuestDAO {
         return guestList;
     }
 
+    //*******************************
+    //SELECT all Guests
+    //*******************************
+    public static ObservableList<Guest> viewGuests () throws SQLException, ClassNotFoundException {
+        //Declare a SELECT statement
+        String selectStmt = "SELECT * FROM guest";
+
+        //Execute SELECT statement
+        try {
+            //Get ResultSet from dbExecuteQuery method
+            ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
+
+            //Send ResultSet to the getRoomList method and get room object
+            ObservableList<Guest> guestList = getGuestList(rsEmps);
+
+            //Return room object
+            return guestList;
+        } catch (SQLException e) {
+            System.out.println("SQL select operation has been failed: " + e);
+            //Return exception
+            throw e;
+        }
+    }
+
     //*************************************
     //INSERT a Guest
     //*************************************
     public static void insertGuest (int guestID, String title, String firstName, String lastName, String contactNum, String homeAddr) throws SQLException, ClassNotFoundException {
+
         //Declare an UPDATE statement
         String updateStmt =
                         "INSERT INTO guest\n" +
