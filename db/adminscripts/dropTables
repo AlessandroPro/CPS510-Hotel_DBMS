@@ -1,0 +1,16 @@
+DROP TABLE manages;
+DROP TABLE supplies;
+DROP TABLE services;
+DROP TABLE books;
+DROP TABLE part_time_employee;
+DROP TABLE full_time_employee;
+DROP TABLE promotion;
+DROP TABLE recreation;
+DROP TABLE dining;
+DROP TABLE inventory;
+DROP TABLE amenity;
+DROP TABLE supplier;
+DROP TABLE guest;
+DROP TABLE room;
+DROP TABLE department;
+quit

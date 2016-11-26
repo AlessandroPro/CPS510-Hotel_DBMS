@@ -1,0 +1,5 @@
+SELECT FirstName, LastName, Title
+FROM full_time_employee
+WHERE Department ='FoodServices'
+MINUS
+(SELECT FirstName, LastName, Title FROM full_time_employee x WHERE x.Title = 'Cook');

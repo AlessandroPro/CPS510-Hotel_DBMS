@@ -1,0 +1,2 @@
+SELECT  'Average salary for full-time employees is: ', AVG(Salary)
+FROM full_time_employee;
