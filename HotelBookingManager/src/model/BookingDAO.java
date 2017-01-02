@@ -31,7 +31,7 @@ public class BookingDAO {
         }
     }
 
-    //Select * from room operation
+    //Select * from booking operation
     private static ObservableList<Booking> getBookingList(ResultSet rs) throws SQLException, ClassNotFoundException {
         //Declare a observable List which comprises of Booking objects
         ObservableList<Booking> bookingList = FXCollections.observableArrayList();
@@ -46,24 +46,26 @@ public class BookingDAO {
             booking.setPaymentMethod(rs.getString("PaymentMethod"));
             booking.setPaymentReceived(rs.getString("PaymentReceived"));
 
-            //Add room to the ObservableList
+            //Add booking to the ObservableList
             bookingList.add(booking);
         }
-        //return roomList (ObservableList of rooms)
+        //return bookingList (ObservableList of bookings)
         return bookingList;
     }
 
     //*************************************
     //INSERT a Booking
     //*************************************
-    public static void insertBooking (int guestID, int roomNum, String checkInDate, String checkOutDate, String packageUsed) throws SQLException, ClassNotFoundException {
+    public static void insertBooking (int guestID, int roomNum, String checkInDate, String checkOutDate,
+                                      String packageUsed) throws SQLException, ClassNotFoundException {
         //Declare an UPDATE statement
         String updateStmt =
                 "INSERT INTO books\n" +
                         "(GuestID, RoomNumber, CheckInDate, CheckOutDate, Package, PaymentMethod, PaymentReceived)\n" +
                         "VALUES\n" +
                         "("+guestID+", "+roomNum+", TO_DATE('"+checkInDate+" 15:00:00', " +
-                        "'yy/mm/dd hh24:mi:ss'), TO_DATE('"+checkOutDate+" 11:00:00', 'yy/mm/dd hh24:mi:ss'), '"+packageUsed+"', 'Visa', 'N')";
+                        "'yy/mm/dd hh24:mi:ss'), TO_DATE('"+checkOutDate+" 11:00:00', 'yy/mm/dd hh24:mi:ss')," +
+                        " '"+packageUsed+"', 'Visa', 'N')";
 
         //Execute UPDATE operation
         try {

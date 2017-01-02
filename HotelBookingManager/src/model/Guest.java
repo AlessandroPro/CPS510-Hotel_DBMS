@@ -5,9 +5,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- * Created by ONUR BASKIRT on 27.02.2016.
- */
 public class Guest {
     //Declare Guest Table Columns
     private IntegerProperty guestID;

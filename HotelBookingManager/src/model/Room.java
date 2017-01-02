@@ -4,9 +4,6 @@ import javafx.beans.property.*;
 
 import java.sql.Date;
 
-/**
- * Created by ONUR BASKIRT on 27.02.2016.
- */
 public class Room {
     //Declare Employees Table Columns
     private IntegerProperty roomNumber;

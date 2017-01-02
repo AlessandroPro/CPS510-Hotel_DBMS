@@ -23,10 +23,10 @@ public class GuestDAO {
             guest.setLastName(rs.getString("LastName"));
             guest.setContactNumber(rs.getString("ContactNumber"));
             guest.setHomeAddress(rs.getString("HomeAddress"));
-            //Add room to the ObservableList
+            //Add guests to the ObservableList
             guestList.add(guest);
         }
-        //return roomList (ObservableList of rooms)
+        //return guestList (ObservableList of guests)
         return guestList;
     }
 
@@ -57,7 +57,9 @@ public class GuestDAO {
     //*************************************
     //INSERT a Guest
     //*************************************
-    public static void insertGuest (int guestID, String title, String firstName, String lastName, String contactNum, String homeAddr) throws SQLException, ClassNotFoundException {
+    public static void insertGuest (int guestID, String title, String firstName,
+                                    String lastName, String contactNum, String homeAddr)
+                                    throws SQLException, ClassNotFoundException {
 
         //Declare an UPDATE statement
         String updateStmt =

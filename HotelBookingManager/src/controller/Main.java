@@ -1,4 +1,4 @@
-package controller;//import controller.RootLayoutController;
+package controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,10 +11,8 @@ import java.io.IOException;
 //controller.Main class which extends from Application Class
 public class Main extends Application {
 
-    //This is our PrimaryStage (It contains everything)
     private Stage primaryStage;
 
-    //This is the BorderPane of RootLayout
     private BorderPane rootLayout;
 
     @Override
@@ -55,7 +53,7 @@ public class Main extends Application {
         }
     }
 
-    //Shows the bookings operations view inside the root layout.
+    //Shows the bookings view inside the root layout.
     public void showBookingsView() {
         try {
             //First, load BookingsView from BookingsView.fxml
@@ -70,7 +68,7 @@ public class Main extends Application {
         }
     }
 
-    //Shows the bookings operations view inside the root layout.
+    //Shows the guest view inside the root layout.
     public void showGuestsView() {
         try {
             //First, load BookingsView from BookingsView.fxml

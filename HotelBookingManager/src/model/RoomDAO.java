@@ -12,7 +12,8 @@ public class RoomDAO {
     //*******************************
     //SELECT available Rooms with search criteria
     //*******************************
-    public static ObservableList<Room> searchRooms (String type, int numOfBeds, int maxRate, int floorNum) throws SQLException, ClassNotFoundException {
+    public static ObservableList<Room> searchRooms (String type, int numOfBeds, int maxRate, int floorNum)
+                                                    throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String availabilityY = "'Y'";
         String selectStmt = "SELECT * FROM room WHERE Availability =" + availabilityY;
@@ -32,7 +33,7 @@ public class RoomDAO {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsEmps = DBUtil.dbExecuteQuery(selectStmt);
 
-            //Send ResultSet to the getEmployeeList method and get employee object
+            //Send ResultSet to the getRoomList method and get room object
             ObservableList<Room> roomList = getRoomList(rsEmps);
 
             //Return room object

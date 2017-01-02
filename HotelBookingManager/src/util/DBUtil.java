@@ -5,9 +5,6 @@ import java.sql.*;
 import java.util.Properties;
 
 
-/**
- * Created by ONUR BASKIRT on 22.02.2016.
- */
 public class DBUtil {
     //Declare JDBC Driver
     private static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
@@ -15,11 +12,6 @@ public class DBUtil {
     //Connection
     private static Connection conn = null;
 
-    //Connection String
-    //String connStr = "jdbc:oracle:thin:Username/Password@IP:Port/SID";
-    //Username=HR, Password=HR, IP=localhost, IP=1521, SID=xe
-    //private static final String connStr = "jdbc:oracle:thin:HR/HR@localhost:1521/xe";
-    //private static final String connStr = "jdbc:oracle:thin:thewa/07250503@141.117.57.159:1521/orcl";
     public static String host = "jdbc:oracle:thin:@141.117.57.159:1521:orcl";
     public static String uName = "thewa";
     public static String uPass = "07250503";
