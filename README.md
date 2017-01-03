@@ -20,6 +20,8 @@ The structure of program uses the DAO Design Pattern to perform operations. In D
 Example Screenshots:
 
 <img width="1140" alt="bookingview" src="https://cloud.githubusercontent.com/assets/15040875/21598076/a40577ca-d123-11e6-8702-67c51830ddc1.png">
+<img width="1136" alt="guestview" src="https://cloud.githubusercontent.com/assets/15040875/21598242/2346ae70-d127-11e6-85f1-92c41315128d.png">
+
 
 
 The java files, fxml files, and a single text file are located in the HotelBookingManager/src directory.
