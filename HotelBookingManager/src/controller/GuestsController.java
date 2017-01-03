@@ -74,7 +74,7 @@ public class GuestsController {
     //Populate Guests for TableView
     @FXML
     private void populateGuests (ObservableList<Guest> guestData) throws ClassNotFoundException {
-        //Set items to the employeeTable
+        //Set items to the Guest Table
         guestsTable.setItems(guestData);
     }
 

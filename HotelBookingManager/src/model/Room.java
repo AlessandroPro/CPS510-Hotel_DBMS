@@ -5,7 +5,7 @@ import javafx.beans.property.*;
 import java.sql.Date;
 
 public class Room {
-    //Declare Employees Table Columns
+    //Declare Room Table Columns
     private IntegerProperty roomNumber;
     private StringProperty type;
     private StringProperty availability;

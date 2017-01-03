@@ -158,16 +158,6 @@ public class BookingsController {
     //This method is automatically called after the fxml file has been loaded.
     @FXML
     private void initialize () {
-        /*
-        The setCellValueFactory(...) that we set on the table columns are used to determine
-        which field inside the Employee objects should be used for the particular column.
-        The arrow -> indicates that we're using a Java 8 feature called Lambdas.
-        (Another option would be to use a PropertyValueFactory, but this is not type-safe
-
-        We're only using StringProperty values for our table columns in this example.
-        When you want to use IntegerProperty or DoubleProperty, the setCellValueFactory(...)
-        must have an additional asObject():
-        */
         roomNumberColumn.setCellValueFactory(cellData -> cellData.getValue().roomNumberProperty().asObject());
         roomTypeColumn.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
         roomAvailabilityColumn.setCellValueFactory(cellData -> cellData.getValue().availabilityProperty());
@@ -322,14 +312,14 @@ public class BookingsController {
     //Populate Rooms for TableView
     @FXML
     private void populateRooms (ObservableList<Room> roomData) throws ClassNotFoundException {
-        //Set items to the employeeTable
+        //Set items to the Room Table
         availableRoomsTable.setItems(roomData);
     }
 
     //Populate Bookings for TableView
     @FXML
     private void populateBookings (ObservableList<Booking> bookingData) throws ClassNotFoundException {
-        //Set items to the employeeTable
+        //Set items to the Room Table
         bookingsTable.setItems(bookingData);
     }
 
