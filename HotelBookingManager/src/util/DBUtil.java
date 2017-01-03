@@ -12,9 +12,10 @@ public class DBUtil {
     //Connection
     private static Connection conn = null;
 
+    //user's password is hidden since this code is part of a public repository
     public static String host = "jdbc:oracle:thin:@141.117.57.159:1521:orcl";
     public static String uName = "thewa";
-    public static String uPass = "07250503";
+    public static String uPass = "********";
 
     //Connect to DB
     public static void dbConnect() throws SQLException, ClassNotFoundException {
