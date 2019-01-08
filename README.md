@@ -1,7 +1,7 @@
 CPS 510 - Database Systems - Final Project 
 Section 5
 
-##Hotel Booking Manager GUI
+## Hotel Booking Manager GUI
 
 Alessandro Profenna  
 Tolaz Hewa  
